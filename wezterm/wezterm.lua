@@ -4,6 +4,17 @@ local wezterm = require("wezterm")
 -- This will hold the configuration.
 local config = wezterm.config_builder()
 
+
+config.audible_bell = "Disabled"
+config.font = wezterm.font("IBM Plex Mono", { weight = 'Medium' })
+config.font_size = 16
+config.window_padding = {
+	left = "0cell",
+	right = "0cell",
+	top = "0cell",
+	bottom = "0cell",
+}
+
 -- change theme when switching light or dark mode in OS
 local function get_appearance()
   if wezterm.gui then
@@ -22,15 +33,52 @@ end
 
 config.color_scheme = scheme_for_appearance(get_appearance())
 
-config.audible_bell = "Disabled"
-config.font = wezterm.font("IBM Plex Mono", { weight = 'Medium' })
-config.font_size = 17
-config.window_padding = {
-	left = "0cell",
-	right = "0cell",
-	top = "0cell",
-	bottom = "0cell",
+-- Custom colors for tab_bar
+BG = '#181820'
+A_TAB_BG = '#43436c'
+A_TAB_FG = '#c5c9c5'
+I_TAB_BG = '#32324f'
+I_TAB_FG = '#62627c'
+
+config.window_frame = {
+  font = wezterm.font { family = 'IBM Plex Mono', weight = 'Medium' },
+  font_size = 12.0,
+  active_titlebar_bg = BG,
+  inactive_titlebar_bg = BG,
 }
+
+config.colors = {
+  tab_bar = {
+    background = BG,
+    active_tab = {
+      bg_color = A_TAB_BG,
+      fg_color = A_TAB_FG,
+      intensity = 'Normal',
+      underline = 'None',
+      italic = false,
+      strikethrough = false,
+    },
+    inactive_tab = {
+      bg_color = I_TAB_BG,
+      fg_color = I_TAB_FG,
+    },
+    inactive_tab_hover = {
+      bg_color = A_TAB_BG,
+      fg_color = A_TAB_FG,
+      italic = true,
+    },
+    new_tab = {
+      bg_color = BG,
+      fg_color = A_TAB_FG,
+    },
+    new_tab_hover = {
+      bg_color = BG,
+      fg_color = A_TAB_FG,
+      italic = true,
+    },
+  },
+}
+
 config.native_macos_fullscreen_mode = true
 config.keys = {
   {

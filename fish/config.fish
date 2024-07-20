@@ -1,4 +1,6 @@
 ### base config ###
+fish_add_path /opt/homebrew/bin
+set -g fish_greeting
 fish_vi_key_bindings
 
 ### alias definitions ###
