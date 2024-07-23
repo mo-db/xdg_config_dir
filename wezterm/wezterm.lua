@@ -6,8 +6,10 @@ local config = wezterm.config_builder()
 
 
 config.audible_bell = "Disabled"
-config.font = wezterm.font("IBM Plex Mono", { weight = 'Medium' })
-config.font_size = 16
+config.font = wezterm.font("Iosevka Term SS06", { weight = 'Medium' })
+config.font_size = 18
+config.hide_tab_bar_if_only_one_tab = true
+config.use_fancy_tab_bar = false
 config.window_padding = {
 	left = "0cell",
 	right = "0cell",
@@ -25,7 +27,8 @@ end
 
 local function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'Kanagawa (Gogh)'
+    -- return 'Kanagawa (Gogh)'
+    return 'One Dark (Gogh)'
   else
     return 'One Light (Gogh)'
   end
