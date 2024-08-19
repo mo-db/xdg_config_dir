@@ -6,7 +6,7 @@ local config = wezterm.config_builder()
 
 
 config.audible_bell = "Disabled"
-config.font = wezterm.font("Iosevka Term SS06", { weight = 'Medium' })
+config.font = wezterm.font("Iosevka Term SS06", { weight = 'DemiBold' })
 config.font_size = 18
 config.hide_tab_bar_if_only_one_tab = true
 config.use_fancy_tab_bar = false
